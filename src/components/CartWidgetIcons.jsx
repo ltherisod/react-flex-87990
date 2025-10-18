@@ -8,13 +8,19 @@ import { CartContext } from "../context/CartContext";
 const CartWidgetIcons = ()=>{
     // const contexto = useContext(CartContext)
     // console.log('CartWidget', contexto.cart)
-     const {cart}= useContext(CartContext)
+     const {cart, cartQuantity}= useContext(CartContext)
     console.log('CartWidget', cart)
     return(
-        <div>
+        <>
+        {/* {cart.length ?<div>
             <BsCart4  fontSize={'1.5rem'}/>
-             <Badge bg="danger">5</Badge>
-        </div>
+             <Badge bg="danger">{cartQuantity()}</Badge>
+        </div>: <></>} */}
+       
+            <BsCart4  fontSize={'1.5rem'}/>
+            { cart.length > 0 && <Badge bg="danger">{cartQuantity()}</Badge>}
+        
+        </>
     )
 }
 

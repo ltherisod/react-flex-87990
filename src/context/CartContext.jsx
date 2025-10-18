@@ -52,6 +52,7 @@ export const CartProvider = ({children})=>{
     const removeList = () => {	//implementa la funcionalidad para dejar el carrito vacío
         setCart([])
     }
+
     const deleteItem = (id) => {	//implementa la funcionalidad para borrar un producto del carrito
         setCart(cart.filter((prod)=> prod.id !== id))
     }
@@ -60,8 +61,30 @@ export const CartProvider = ({children})=>{
             return cart.some((prod)=> prod.id === id)
     }
 
+    //total a pagar
+
+    const total = ()=> {
+        return cart.reduce((acc, prod)=> acc += (prod.quantity * prod.price),0)
+    }
+
+    const cartQuantity = ()=>{
+        return cart.reduce((acc, prod)=> acc += prod.quantity, 0)
+    }
+
+
+    const itemQuantity = (id)=>{
+        const itemCart = cart.find((prod)=> prod.id === id)
+
+    if(itemCart){
+        return itemCart.quantity
+    }else{
+        //no existe
+        return 0
+    }
+    }
+
     return(
-        <CartContext.Provider value={{cart, addToCart, removeList, deleteItem}}>
+        <CartContext.Provider value={{cart, addToCart, removeList, deleteItem, total, cartQuantity, itemQuantity }}>
             {children}
         </CartContext.Provider>
     )
