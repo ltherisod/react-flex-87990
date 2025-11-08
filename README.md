@@ -13,14 +13,16 @@ Este proyecto fue realizado para enseñar las bases de react en CoderHouse.
 
 
 ### Version Host 💻
-Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder Flex App]()
+Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder Flex App](https://react-flex-87990.vercel.app/)
 
 
 ### Librerias utilizaron 📖
 
 - [Firebase](): utilizado como base datos.
 - [React Router Dom](): utilizada para la navegacion por rutas de la app.
-- [React Bootstrap](): urilizada para el styling de la app.
+- [React Bootstrap](): utilizada para el styling de la app.
+- [SweetAler2](): Toasts y alertas en la app.
+- [React Hook Form](): Validacion de formularios.
 
 
  Desarrollado por Laura 🤭
