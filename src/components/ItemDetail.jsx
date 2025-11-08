@@ -5,6 +5,7 @@ import { useContext, useState } from 'react'
 //importo el contexto que quiero usar
 import { CartContext } from '../context/CartContext'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({detalle}) => {
   const {addToCart, itemQuantity}= useContext(CartContext)
@@ -13,6 +14,14 @@ const ItemDetail = ({detalle}) => {
     const onAdd = (cantidad) => {
        addToCart(detalle, cantidad)
        setPurchase(true)
+       Swal.fire({
+        position:'top-end',
+        icon:'success',
+        title:`Agregaste ${detalle.name} al carrito`,
+        showCancelButton:false,
+        showConfirmButton:false,
+        timer:2000
+       })
     }
 const stockActualizado = detalle.stock - itemQuantity(detalle.id)
   return (
